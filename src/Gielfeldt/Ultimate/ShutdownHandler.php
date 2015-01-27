@@ -39,7 +39,7 @@ class ShutdownHandler
 
     /**
      * The handler object's id in the stack counter.
-     * @var integer
+     * @var string
      */
     protected $id;
 
