@@ -2,7 +2,7 @@
 
 namespace Gielfeldt\Ultimate\Example;
 
-require __DIR__ . '/../vendor/autoload.php';
+require 'vendor/autoload.php';
 
 use Gielfeldt\Ultimate\ShutdownHandler;
 
