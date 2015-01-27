@@ -47,11 +47,11 @@ class MyClass {
 // destructor when the last object is destroyed.
 
 $objs = array();
-$obj[] = new MyClass("world 1", "key1");
-$obj[] = new MyClass("world 2", "key1");
-$obj[] = new MyClass("world 3", "key1");
-$obj[] = new MyClass("world 4", "key1");
-$obj[] = new MyClass("world 5", "key2");
-$obj[] = new MyClass("world 6", "key2");
-$obj[] = new MyClass("world 7", "key2");
-$obj[] = new MyClass("world 8", "key2");
+$objs[] = new MyClass("world 1", "key1");
+$objs[] = new MyClass("world 2", "key1");
+$objs[] = new MyClass("world 3", "key1");
+$objs[] = new MyClass("world 4", "key1");
+$objs[] = new MyClass("world 5", "key2");
+$objs[] = new MyClass("world 6", "key2");
+$objs[] = new MyClass("world 7", "key2");
+$objs[] = new MyClass("world 8", "key2");
