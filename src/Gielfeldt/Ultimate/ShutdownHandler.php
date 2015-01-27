@@ -65,8 +65,7 @@ class ShutdownHandler {
     public function __construct($callback, array $arguments = array(), $key = NULL)
     {
         // Register a PHP shutdown handler first time around.
-        if (!isset(static::$handlers))
-        {
+        if (!isset(static::$handlers)) {
             $this->registerShutdownFunction(array(get_class($this), 'shutdown'));
             static::$handlers = array();
         }
@@ -74,8 +73,7 @@ class ShutdownHandler {
         // Check validity of the callback. Note, this triggers autoload of classes
         // if necessary. We do this to avoid potential fatal errors during the
         // shutdown phase.
-        if (!is_callable($callback))
-        {
+        if (!is_callable($callback)) {
             throw new \RuntimeException(sprintf("Callback: '%s' is not callable", static::getCallbackName($callback)));
         }
 
@@ -97,8 +95,7 @@ class ShutdownHandler {
      */
     public function run()
     {
-        if ($this->unRegister() && empty(static::$keys[$this->key]))
-        {
+        if ($this->unRegister() && empty(static::$keys[$this->key])) {
             call_user_func_array($this->callback, $this->arguments);
         }
     }
@@ -122,10 +119,8 @@ class ShutdownHandler {
      */
     public function unRegister()
     {
-        if (isset(static::$handlers[$this->id]))
-        {
-            if (isset($this->key))
-            {
+        if (isset(static::$handlers[$this->id])) {
+            if (isset($this->key)) {
                 static::$keys[$this->key]--;
             }
             unset(static::$handlers[$this->id]);
@@ -155,26 +150,18 @@ class ShutdownHandler {
      */
     static public function getCallbackName($callback)
     {
-        if (is_array($callback))
-        {
-            if (is_object($callback[0]))
-            {
+        if (is_array($callback)) {
+            if (is_object($callback[0])) {
                 // Return name of object method with arrow notation.
                 return get_class($callback[0]) . '->' . $callback[1];
-            }
-            else
-            {
+            } else {
                 // Return name of class method with double-colon notation.
                 return $callback[0] . '::' . $callback[1];
             }
-        }
-        elseif (is_object($callback))
-        {
+        } elseif (is_object($callback)) {
             // Most likely an anonymous function. Return the class name.
             return get_class($callback);
-        }
-        else
-        {
+        } else {
             // Plain string containing function name.
             return $callback;
         }
@@ -196,15 +183,13 @@ class ShutdownHandler {
         // key, and increment the counter for the new key.
 
         // Only decrement the counter, if this is a registered handler.
-        if (isset($this->key) && $this->isRegistered())
-        {
+        if (isset($this->key) && $this->isRegistered()) {
             static::$keys[$this->key]--;
         }
 
         // Set the new key, and increment the counter appropriately.
         $this->key = $key;
-        if (isset($key))
-        {
+        if (isset($key)) {
             static::$keys[$key] = empty(static::$keys[$key]) ? 1 : static::$keys[$key] + 1;
         }
     }
@@ -219,8 +204,7 @@ class ShutdownHandler {
     {
         // Always pick the first handler in the array. When a handler is run, it
         // will remove itself from the array (unregister).
-        while ($handler = reset(static::$handlers))
-        {
+        while ($handler = reset(static::$handlers)) {
             $handler->run();
         }
     }
