@@ -79,7 +79,7 @@ class ShutdownHandler {
     }
     $this->callback = $callback;
     $this->arguments = $arguments;
-    $this->id = static::$counter++;
+    $this->id = ":" . (string) (static::$counter++);
     $this->setKey($key);
     static::$handlers[$this->id] = $this;
   }
@@ -181,7 +181,7 @@ class ShutdownHandler {
    * Real shutdown handler.
    */
   static public function shutdown() {
-    while ($handler = array_pop(static::$handlers)) {
+    while ($handler = array_shift(static::$handlers)) {
       $handler->run();
     }
   }
