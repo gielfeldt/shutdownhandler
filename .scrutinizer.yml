@@ -21,6 +21,9 @@ tools:
     suffixes:
       - php
       - inc
+  external_code_coverage:
+    # Wait up to fifteen minutes for code coverage.
+    timeout: 900
 
 checks:
     php:
