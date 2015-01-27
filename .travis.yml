@@ -17,5 +17,5 @@ after_success:
  - if ( test ! -z $COVERAGE ); then wget https://scrutinizer-ci.com/ocular.phar; fi
  - if ( test ! -z $COVERAGE ); then php ocular.phar code-coverage:upload --format=php-clover build/logs/clover.xml ;fi
  - if ( test ! -z $COVERAGE ); then vendor/bin/test-reporter --stdout > build/logs/clover.json; fi
- - if ( test ! -z $COVERAGE ); then curl -X POST -d @build/logs/clover.json -H "Content-Type: application/json" -H "User-Agent: Code Climate (PHP Test Reporter v1.0.1-dev)"  https://codeclimate.com/test_reports; fi
+ - 'if ( test ! -z $COVERAGE ); then curl -X POST -d @build/logs/clover.json -H "Content-Type: application/json" -H "User-Agent: Code Climate (PHP Test Reporter v1.0.1-dev)"  https://codeclimate.com/test_reports; fi'
  - if ( test ! -z $COVERAGE ); then vendor/bin/coveralls -v; fi
