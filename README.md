@@ -1,6 +1,6 @@
 # Ultimate library
 
-[![Build Status](https://travis-ci.org/gielfeldt/ultimate.png?branch=master)](https://travis-ci.org/gielfeldt/ultimate)
+[![Build Status](https://travis-ci.org/gielfeldt/ultimate.svg?branch=master)](https://travis-ci.org/gielfeldt/ultimate)
 [![Build Status](https://scrutinizer-ci.com/g/gielfeldt/ultimate/badges/build.png?b=master)](https://scrutinizer-ci.com/g/gielfeldt/ultimate/build-status/master)
 [![Scrutinizer Code Quality](https://scrutinizer-ci.com/g/gielfeldt/ultimate/badges/quality-score.png?b=master)](https://scrutinizer-ci.com/g/gielfeldt/ultimate/?branch=master)
 [![Code Coverage](https://scrutinizer-ci.com/g/gielfeldt/ultimate/badges/coverage.png?b=master)](https://scrutinizer-ci.com/g/gielfeldt/ultimate/?branch=master)
