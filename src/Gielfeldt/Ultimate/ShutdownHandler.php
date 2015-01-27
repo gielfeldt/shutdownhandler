@@ -74,8 +74,8 @@ class ShutdownHandler
         // Check validity of the callback. Note, this triggers autoload of classes
         // if necessary. We do this to avoid potential fatal errors during the
         // shutdown phase.
-        if (!is_callable($callback)) {
-            throw new \RuntimeException(sprintf("Callback: '%s' is not callable", static::getCallbackName($callback)));
+        if (!is_callable($callback, false, $callback_name)) {
+            throw new \RuntimeException(sprintf("Callback: '%s' is not callable", $callback_name));
         }
 
         // Setup object properties.
@@ -88,7 +88,6 @@ class ShutdownHandler
 
         // Register this handler.
         $this->reRegister($key);
-        $this->setKey($key);
     }
 
     /**
@@ -141,34 +140,6 @@ class ShutdownHandler
     }
 
     /**
-     * Get callback name in human readable format.
-     *
-     * @param callback $callback
-     *   Any type of callback.
-     *
-     * @return string
-     *   The name of the callback in human readable format.
-     */
-    public static function getCallbackName($callback)
-    {
-        if (is_array($callback)) {
-            if (is_object($callback[0])) {
-                // Return name of object method with arrow notation.
-                return get_class($callback[0]) . '->' . $callback[1];
-            } else {
-                // Return name of class method with double-colon notation.
-                return $callback[0] . '::' . $callback[1];
-            }
-        } elseif (is_object($callback)) {
-            // Most likely an anonymous function. Return the class name.
-            return get_class($callback);
-        } else {
-            // Plain string containing function name.
-            return $callback;
-        }
-    }
-
-    /**
      * ------ INTERNAL METHODS ------
      */
 
@@ -183,7 +154,7 @@ class ShutdownHandler
         // If a handler switches key, we need to decrement the counter for the old
         // key, and increment the counter for the new key.
 
-        // Only decrement the counter, if this is a registered handler.
+        // Only decrement the counter, if this is already a registered handler.
         if (isset($this->key) && $this->isRegistered()) {
             static::$keys[$this->key]--;
         }
@@ -191,7 +162,7 @@ class ShutdownHandler
         // Set the new key, and increment the counter appropriately.
         $this->key = $key;
         if (isset($key)) {
-            static::$keys[$key] = empty(static::$keys[$key]) ? 1 : static::$keys[$key] + 1;
+            @static::$keys[$key]++;
         }
     }
 

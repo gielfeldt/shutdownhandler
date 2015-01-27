@@ -76,8 +76,7 @@ class ShutdownHandlerTest extends \PHPUnit_Framework_TestCase
     {
         self::$testVariable = FALSE;
         $handler = new ShutdownHandler(array(get_class($this), 'shutdown'), array(TRUE), 'testkey');
-        $handler->unRegister();
-        $handler->reRegister();
+        $handler->reRegister('testkey1');
         $handler->run();
         $this->assertTrue(TRUE, self::$testVariable);
     }
@@ -87,23 +86,5 @@ class ShutdownHandlerTest extends \PHPUnit_Framework_TestCase
         $handler = new ShutdownHandler(array(get_class($this), 'shutdown'), array(TRUE), 'testkey');
         ShutdownHandler::shutdown();
         $this->assertTrue(TRUE, self::$testVariable);
-    }
-
-    public function testCallbackName() {
-        $callback = array($this, 'shutdown');
-        $result = ShutdownHandler::getCallbackName($callback);
-        $this->assertEquals(get_class($this) . '->shutdown', $result);
-
-        $callback = array(get_class($this), 'shutdown');
-        $result = ShutdownHandler::getCallbackName($callback);
-        $this->assertEquals(get_class($this) . '::shutdown', $result);
-
-        $callback = 'shutdown';
-        $result = ShutdownHandler::getCallbackName($callback);
-        $this->assertEquals('shutdown', $result);
-
-        $callback = function() {};
-        $result = ShutdownHandler::getCallbackName($callback);
-        $this->assertStringStartsWith('Closure', $result);
     }
 }
