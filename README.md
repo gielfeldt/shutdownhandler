@@ -4,6 +4,7 @@
 [![Build Status](https://scrutinizer-ci.com/g/gielfeldt/ultimate/badges/build.png?b=master)](https://scrutinizer-ci.com/g/gielfeldt/ultimate/build-status/master)
 [![Scrutinizer Code Quality](https://scrutinizer-ci.com/g/gielfeldt/ultimate/badges/quality-score.png?b=master)](https://scrutinizer-ci.com/g/gielfeldt/ultimate/?branch=master)
 [![Code Coverage](https://scrutinizer-ci.com/g/gielfeldt/ultimate/badges/coverage.png?b=master)](https://scrutinizer-ci.com/g/gielfeldt/ultimate/?branch=master)
+[![License](https://img.shields.io/packagist/l/gielfeldt/ultimate.svg?style=3d)]
 
 ## Installation
 
