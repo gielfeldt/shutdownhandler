@@ -1,5 +1,7 @@
 <?php
 
+namespace Gielfeldt\Ultimate\Example;
+
 require __DIR__ . '/../vendor/autoload.php';
 
 use Gielfeldt\Ultimate\ShutdownHandler;
@@ -10,8 +12,9 @@ use Gielfeldt\Ultimate\ShutdownHandler;
  * @param string $message
  *   Message to display during shutdown.
  */
-function myshutdownhandler($message = '') {
-  echo "Goodbye $message\n";
+function myshutdownhandler($message = '')
+{
+    echo "Goodbye $message\n";
 }
 
 // Register shutdown handler to be run during PHP shutdown phase.

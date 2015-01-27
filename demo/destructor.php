@@ -43,7 +43,7 @@ class MyClass
      * @param string $message
      *   The message to display.
      */
-    static public function shutdown($message = '')
+    public static function shutdown($message = '')
     {
         echo "Destroy $message\n";
     }
