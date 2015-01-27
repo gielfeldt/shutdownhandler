@@ -1,10 +1,10 @@
 # Ultimate library
 
-[![Build Status](https://travis-ci.org/gielfeldt/ultimate.svg?branch=master)](https://travis-ci.org/gielfeldt/ultimate)
+[![Build Status](https://travis-ci.org/gielfeldt/ultimate.svg?branch=master)][2]
 [![Build Status](https://scrutinizer-ci.com/g/gielfeldt/ultimate/badges/build.png?b=master)](https://scrutinizer-ci.com/g/gielfeldt/ultimate/build-status/master)
-[![Scrutinizer Code Quality](https://scrutinizer-ci.com/g/gielfeldt/ultimate/badges/quality-score.png?b=master)](https://scrutinizer-ci.com/g/gielfeldt/ultimate/?branch=master)
-[![Code Coverage](https://scrutinizer-ci.com/g/gielfeldt/ultimate/badges/coverage.png?b=master)](https://scrutinizer-ci.com/g/gielfeldt/ultimate/?branch=master)
-[![License](https://img.shields.io/packagist/l/gielfeldt/ultimate.svg?style=3d)]
+[![Scrutinizer Code Quality](https://scrutinizer-ci.com/g/gielfeldt/ultimate/badges/quality-score.png?b=master)][3]
+[![Code Coverage](https://scrutinizer-ci.com/g/gielfeldt/ultimate/badges/coverage.png?b=master)][3]
+[![License](https://img.shields.io/packagist/l/gielfeldt/ultimate.svg?style=3d)][4]
 
 ## Installation
 
@@ -69,3 +69,9 @@ $handler2->run();
 
 1. Lots probably.
 
+
+
+[1]:  https://packagist.org/packages/gielfeldt/ultimate
+[2]:  https://travis-ci.org/gielfeldt/ultimate
+[3]:  https://scrutinizer-ci.com/g/gielfeldt/ultimate/?branch=master
+[4]:  https://raw.githubusercontent.com/gielfeldt/ultimate/master/LICENSE.md
