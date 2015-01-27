@@ -5,24 +5,25 @@ namespace Gielfeldt\Ultimate;
 /**
  * Class ShutdownHandler
  */
-class ShutdownHandler {
+class ShutdownHandler
+{
     /**
      * Registered handler objects.
      * @var ShutdownHandler
      */
-    static protected $handlers;
+    protected static $handlers;
 
     /**
      * Stack counter for registered handler keys.
      * @var array
      */
-    static protected $keys = array();
+    protected static $keys = array();
 
     /**
      * Stack counter for registered handler objects.
      * @var integer
      */
-    static protected $counter = 0;
+    protected static $counter = 0;
 
     /**
      * Callback for handler.
@@ -62,7 +63,7 @@ class ShutdownHandler {
      * @param array $arguments
      *   Arguments for the callback.
      */
-    public function __construct($callback, array $arguments = array(), $key = NULL)
+    public function __construct($callback, array $arguments = array(), $key = null)
     {
         // Register a PHP shutdown handler first time around.
         if (!isset(static::$handlers)) {
@@ -104,7 +105,7 @@ class ShutdownHandler {
      * Check if this handler is registered.
      *
      * @return boolean
-     *   TRUE if handler is registered.
+     *   true if handler is registered.
      */
     public function isRegistered()
     {
@@ -115,7 +116,7 @@ class ShutdownHandler {
      * Unregister handler.
      *
      * @return boolean
-     *   TRUE if handler was unregistered (i.e. not already unregistered).
+     *   true if handler was unregistered (i.e. not already unregistered).
      */
     public function unRegister()
     {
@@ -124,15 +125,15 @@ class ShutdownHandler {
                 static::$keys[$this->key]--;
             }
             unset(static::$handlers[$this->id]);
-            return TRUE;
+            return true;
         }
-        return FALSE;
+        return false;
     }
 
     /**
      * Reregister handler.
      */
-    public function reRegister($key = NULL)
+    public function reRegister($key = null)
     {
         // Set the key, and register the handler.
         $this->setKey($key);
@@ -148,7 +149,7 @@ class ShutdownHandler {
      * @return string
      *   The name of the callback in human readable format.
      */
-    static public function getCallbackName($callback)
+    public static function getCallbackName($callback)
     {
         if (is_array($callback)) {
             if (is_object($callback[0])) {
@@ -200,7 +201,7 @@ class ShutdownHandler {
      * Called by PHP's shutdown handler. Run through the registered handlers,
      * and run them.
      */
-    static public function shutdown()
+    public static function shutdown()
     {
         // Always pick the first handler in the array. When a handler is run, it
         // will remove itself from the array (unregister).
