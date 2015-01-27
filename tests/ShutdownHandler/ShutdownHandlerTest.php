@@ -86,7 +86,7 @@ class ShutdownHandlerTest extends \PHPUnit_Framework_TestCase
         self::$testVariable = FALSE;
         $handler = new ShutdownHandler(array(get_class($this), 'shutdown'), array(TRUE), 'testkey');
         ShutdownHandler::shutdown();
-        $this->assertTrue(TRUE, self::$testVariable);
+        $this->assertTrue(FALSE, self::$testVariable);
     }
 
     public function testCallbackName() {
