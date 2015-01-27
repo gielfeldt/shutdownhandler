@@ -1,7 +1,8 @@
 # Ultimate library
 
 [![Build Status](https://travis-ci.org/gielfeldt/ultimate.png?branch=master)](https://travis-ci.org/gielfeldt/ultimate)
-[![Coverage Status](https://coveralls.io/repos/gielfeldt/ultimate/badge.svg)](https://coveralls.io/r/gielfeldt/ultimate)
+[![Scrutinizer Code Quality](https://scrutinizer-ci.com/g/gielfeldt/ultimate/badges/quality-score.png?b=master)](https://scrutinizer-ci.com/g/gielfeldt/ultimate/?branch=master)
+[![Code Coverage](https://scrutinizer-ci.com/g/gielfeldt/ultimate/badges/coverage.png?b=master)](https://scrutinizer-ci.com/g/gielfeldt/ultimate/?branch=master)
 
 ## Installation
 

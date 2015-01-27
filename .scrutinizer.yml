@@ -5,7 +5,7 @@ tools:
       - inc
   php_code_sniffer:
     config:
-      standard: Drupal
+      standard: PSR2
     extensions:
       - php
       - inc
