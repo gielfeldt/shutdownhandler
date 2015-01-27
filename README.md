@@ -1,5 +1,8 @@
 # Ultimate library
 
+[![Build Status](https://travis-ci.org/gielfeldt/ultimate.png?branch=master)](https://travis-ci.org/gielfeldt/ultimate)
+[![Coverage Status](https://coveralls.io/repos/gielfeldt/ultimate/badge.svg)](https://coveralls.io/r/gielfeldt/ultimate)
+
 ## Installation
 
 To install the Ultimate library in your project using Composer, first add the following to your `composer.json`
