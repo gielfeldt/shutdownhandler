@@ -92,18 +92,18 @@ class ShutdownHandlerTest extends \PHPUnit_Framework_TestCase
     public function testCallbackName() {
         $callback = array($this, 'shutdown');
         $result = ShutdownHandler::getCallbackName($callback);
-        $this->assertEquals($result, get_class($this) . '->shutdown');
+        $this->assertEquals(get_class($this) . '->shutdown', $result);
 
         $callback = array(get_class($this), 'shutdown');
         $result = ShutdownHandler::getCallbackName($callback);
-        $this->assertEquals($result, get_class($this) . '::shutdown');
+        $this->assertEquals(get_class($this) . '::shutdown', $result);
 
         $callback = 'shutdown';
         $result = ShutdownHandler::getCallbackName($callback);
-        $this->assertEquals($result, 'shutdown');
+        $this->assertEquals('shutdown', $result);
 
         $callback = function() {};
         $result = ShutdownHandler::getCallbackName($callback);
-        $this->assertEquals($result, 'Closure');
+        $this->assertStringStartsWith('Closure', $result);
     }
 }
