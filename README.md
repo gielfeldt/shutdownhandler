@@ -28,7 +28,9 @@ can be manipulated after being created.
 #### Example
 
 ```php
-require __DIR__ . '/../vendor/autoload.php';
+namespace Gielfeldt\Ultimate\Example;
+
+require 'vendor/autoload.php';
 
 use Gielfeldt\Ultimate\ShutdownHandler;
 
@@ -38,17 +40,18 @@ use Gielfeldt\Ultimate\ShutdownHandler;
  * @param string $message
  *   Message to display during shutdown.
  */
-function myshutdownhandler($message = '') {
-  echo "Goodbye $message\n";
+function myshutdownhandler($message = '')
+{
+    echo "Goodbye $message\n";
 }
 
 // Register shutdown handler to be run during PHP shutdown phase.
-$handler = new ShutdownHandler('myshutdownhandler', array('cruel world'));
+$handler = new ShutdownHandler('\Gielfeldt\Ultimate\Example\myshutdownhandler', array('cruel world'));
 
 echo "Hello world\n";
 
 // Register shutdown handler.
-$handler2 = new ShutdownHandler('myshutdownhandler', array('for now'));
+$handler2 = new ShutdownHandler('\Gielfeldt\Ultimate\Example\myshutdownhandler', array('for now'));
 
 // Don't wait for shutdown phase, just run now.
 $handler2->run();
