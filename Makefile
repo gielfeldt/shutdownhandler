@@ -11,6 +11,3 @@ coverage:
 
 coverage-show:
 	open build/artifacts/coverage/index.html
-
-travis:
-	phpunit
