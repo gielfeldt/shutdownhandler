@@ -74,4 +74,4 @@ $handler2->run();
 [1]:  https://packagist.org/packages/gielfeldt/ultimate
 [2]:  https://travis-ci.org/gielfeldt/ultimate
 [3]:  https://scrutinizer-ci.com/g/gielfeldt/ultimate/?branch=master
-[4]:  https://raw.githubusercontent.com/gielfeldt/ultimate/master/LICENSE.md
+[4]:  https://github.com/gielfeldt/ultimate/blob/master/LICENSE.md
