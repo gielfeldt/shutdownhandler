@@ -4,7 +4,11 @@
 [![Build Status](https://scrutinizer-ci.com/g/gielfeldt/ultimate/badges/build.png?b=master)](https://scrutinizer-ci.com/g/gielfeldt/ultimate/build-status/master)
 [![Scrutinizer Code Quality](https://scrutinizer-ci.com/g/gielfeldt/ultimate/badges/quality-score.png?b=master)][3]
 [![Code Coverage](https://scrutinizer-ci.com/g/gielfeldt/ultimate/badges/coverage.png?b=master)][3]
-[![License](https://img.shields.io/packagist/l/gielfeldt/ultimate.svg?style=3d)][4]
+
+[![Latest Stable Version](https://poser.pugx.org/gielfeldt/ultimate/v/stable.svg)][1]
+[![Total Downloads](https://poser.pugx.org/gielfeldt/ultimate/downloads.svg)][1]
+[![Latest Unstable Version](https://poser.pugx.org/gielfeldt/ultimate/v/unstable.svg)][1]
+[![License](https://poser.pugx.org/gielfeldt/ultimate/license.svg)][4]
 
 ## Installation
 
