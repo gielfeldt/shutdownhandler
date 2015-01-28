@@ -21,7 +21,7 @@ config file.
 ```javascript
 {
     "require": {
-        "gielfeldt/ultimate": "1.0.*@alpha"
+        "gielfeldt/ultimate": "~1.0"
     }
 }
 ```
