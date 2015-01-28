@@ -6,9 +6,12 @@
 [![Code Coverage](https://scrutinizer-ci.com/g/gielfeldt/ultimate/badges/coverage.png?b=master)][3]
 
 [![Latest Stable Version](https://poser.pugx.org/gielfeldt/ultimate/v/stable.svg)][1]
-[![Total Downloads](https://poser.pugx.org/gielfeldt/ultimate/downloads.svg)][1]
 [![Latest Unstable Version](https://poser.pugx.org/gielfeldt/ultimate/v/unstable.svg)][1]
 [![License](https://poser.pugx.org/gielfeldt/ultimate/license.svg)][4]
+
+![Total Downloads](https://poser.pugx.org/gielfeldt/ultimate/downloads.svg)
+![Monthly Downloads](https://poser.pugx.org/gielfeldt/ultimate/d/monthly.png)
+![Daily Downloads](https://poser.pugx.org/gielfeldt/ultimate/daily.svg)
 
 ## Installation
 
