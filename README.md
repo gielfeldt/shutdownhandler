@@ -11,7 +11,7 @@
 
 ![Total Downloads](https://poser.pugx.org/gielfeldt/ultimate/downloads.svg)
 ![Monthly Downloads](https://poser.pugx.org/gielfeldt/ultimate/d/monthly.png)
-![Daily Downloads](https://poser.pugx.org/gielfeldt/ultimate/daily.svg)
+![Daily Downloads](https://poser.pugx.org/gielfeldt/ultimate/daily.png)
 
 ## Installation
 
