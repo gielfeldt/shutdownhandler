@@ -9,9 +9,9 @@
 [![Latest Unstable Version](https://poser.pugx.org/gielfeldt/ultimate/v/unstable.svg)][1]
 [![License](https://poser.pugx.org/gielfeldt/ultimate/license.svg)][4]
 
-![Total Downloads](https://poser.pugx.org/gielfeldt/ultimate/downloads.svg)
-![Monthly Downloads](https://poser.pugx.org/gielfeldt/ultimate/d/monthly.png)
-![Daily Downloads](https://poser.pugx.org/gielfeldt/ultimate/daily.png)
+[![Total Downloads](https://poser.pugx.org/gielfeldt/ultimate/downloads.svg)][1]
+[![Monthly Downloads](https://poser.pugx.org/gielfeldt/ultimate/d/monthly.png)][1]
+[![Daily Downloads](https://poser.pugx.org/gielfeldt/ultimate/d/daily.png)][1]
 
 ## Installation
 
