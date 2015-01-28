@@ -19,3 +19,6 @@ after_script:
  - if ( test ! -z $COVERAGE ); then vendor/bin/test-reporter --stdout > build/logs/clover.json; fi
  - 'if ( test ! -z $COVERAGE ); then curl -X POST -d @build/logs/clover.json -H "Content-Type: application/json" -H "User-Agent: Code Climate (PHP Test Reporter v1.0.1-dev)"  https://codeclimate.com/test_reports; fi'
  - if ( test ! -z $COVERAGE ); then vendor/bin/coveralls -v; fi
+
+notifications:
+  email: false
