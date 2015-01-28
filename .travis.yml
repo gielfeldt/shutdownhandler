@@ -14,6 +14,10 @@ script:
  - phpunit $COVERAGE
 
 after_script:
+ - echo $TRAVIS
+ - echo $CI_NAME
+ - echo $TRAVIS_JOB_ID
+ - echo $COVERALLS_REPO_TOKEN
  - if ( test ! -z $COVERAGE ); then wget https://scrutinizer-ci.com/ocular.phar; fi
  - if ( test ! -z $COVERAGE ); then php ocular.phar code-coverage:upload --format=php-clover build/logs/clover.xml ;fi
  - if ( test ! -z $COVERAGE ); then vendor/bin/test-reporter --stdout > build/logs/clover.json; fi
