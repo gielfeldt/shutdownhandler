@@ -7,7 +7,8 @@
     "license": "MIT",
     "authors": [
         {
-            "name": "Thomas Gielfeldt"
+            "name": "Thomas Gielfeldt",
+            "email": "thomas@gielfeldt.dk"
         }
     ],
     "require": {
