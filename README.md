@@ -4,6 +4,7 @@
 [![Build Status](https://scrutinizer-ci.com/g/gielfeldt/ultimate/badges/build.png?b=master)](https://scrutinizer-ci.com/g/gielfeldt/ultimate/build-status/master)
 [![Scrutinizer Code Quality](https://scrutinizer-ci.com/g/gielfeldt/ultimate/badges/quality-score.png?b=master)][3]
 [![Code Coverage](https://scrutinizer-ci.com/g/gielfeldt/ultimate/badges/coverage.png?b=master)][3]
+[![Code Climate](https://codeclimate.com/github/gielfeldt/ultimate/badges/gpa.svg)][5]
 
 [![Latest Stable Version](https://poser.pugx.org/gielfeldt/ultimate/v/stable.svg)][1]
 [![Latest Unstable Version](https://poser.pugx.org/gielfeldt/ultimate/v/unstable.svg)][1]
@@ -82,3 +83,5 @@ $handler2->run();
 [2]:  https://travis-ci.org/gielfeldt/ultimate
 [3]:  https://scrutinizer-ci.com/g/gielfeldt/ultimate/?branch=master
 [4]:  https://github.com/gielfeldt/ultimate/blob/master/LICENSE.md
+[5]:  https://codeclimate.com/github/gielfeldt/ultimate
+[6]:  https://coveralls.io/r/gielfeldt/ultimate
