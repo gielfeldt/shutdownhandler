@@ -85,3 +85,4 @@ $handler2->run();
 [4]:  https://github.com/gielfeldt/ultimate/blob/master/LICENSE.md
 [5]:  https://codeclimate.com/github/gielfeldt/ultimate
 [6]:  https://coveralls.io/r/gielfeldt/ultimate
+[7]:  http://getcomposer.org
