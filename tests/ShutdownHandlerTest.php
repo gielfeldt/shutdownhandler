@@ -1,6 +1,6 @@
 <?php
 
-namespace Test\ShutdownHandler;
+namespace Gielfeldt\Ultimate\Test;
 
 use Gielfeldt\Ultimate\ShutdownHandler;
 

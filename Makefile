@@ -4,10 +4,10 @@ clean:
 	rm -rf build/artifacts/*
 
 test:
-	phpunit --testsuite=shutdownhandler $(TEST)
+	phpunit --testsuite=ultimate $(TEST)
 
 coverage:
-	phpunit --testsuite=shutdownhandler --coverage-html=build/artifacts/coverage $(TEST)
+	phpunit --testsuite=ultimate --coverage-html=build/artifacts/coverage $(TEST)
 
 coverage-show:
 	open build/artifacts/coverage/index.html
