@@ -7,7 +7,6 @@ sudo: false
 install: travis_retry composer install --no-interaction --prefer-source
 
 before_script:
- - composer self-update
  - if [ "$TRAVIS_PHP_VERSION" = "5.3" ]; then export COVERAGE=--coverage-clover=build/logs/clover.xml; else export COVERAGE=; fi
  - if ( test ! -z $COVERAGE ); then composer require codeclimate/php-test-reporter:@dev --dev; fi
 
