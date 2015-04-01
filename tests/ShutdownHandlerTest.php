@@ -18,12 +18,17 @@ class ShutdownHandlerTest extends \PHPUnit_Framework_TestCase
     public function testInvalidCallback() {
         self::$testVariable = 0;
         try {
-            $handler = new ShutdownHandler('invalidfunction', array());
+            $callback_name = null;
+            do
+            {
+                $callback = 'invalidfunction' . md5(rand(0, 100000));
+            } while (ShutdownHandler::isCallable($callback, false, $callback_name));
+            $handler = new ShutdownHandler($callback, array());
             $handler->run();
             $this->assertTrue(false);
         }
         catch (\RuntimeException $e) {
-            $this->assertEquals("Callback: 'invalidfunction' is not callable", $e->getMessage());
+            $this->assertEquals("Callback: '$callback_name' is not callable", $e->getMessage());
         }
     }
 

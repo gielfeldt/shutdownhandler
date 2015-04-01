@@ -74,7 +74,7 @@ class ShutdownHandler
         // Check validity of the callback. Note, this triggers autoload of classes
         // if necessary. We do this to avoid potential fatal errors during the
         // shutdown phase.
-        if (!is_callable($callback, false, $callback_name)) {
+        if (!static::isCallable($callback, false, $callback_name)) {
             throw new \RuntimeException(sprintf("Callback: '%s' is not callable", $callback_name));
         }
 
@@ -196,5 +196,22 @@ class ShutdownHandler
     {
         // Just use PHP's default shutdown handler.
         register_shutdown_function($callback, $arguments);
+    }
+
+    /**
+     * Wrapper for is_callable().
+     *
+     * Does the same as is_callable(), but uses -> notation insted of :: if
+     * callable is an object method.
+     *
+     * @see is_callable()
+     */
+    public static function isCallable($name, $syntax_only = false, &$callable_name) {
+        $result = is_callable($name, $syntax_only, $callable_name);
+        if (is_array($name))
+        {
+            $callable_name = is_object($name[0]) ? str_replace('::', '->', $callable_name) : $callable_name;
+        }
+        return $result;
     }
 }
