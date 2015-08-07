@@ -1,6 +1,6 @@
 # Shutdown Handler
 
-[![Circle CI](https://circleci.com/gh/gielfeldt/shutdownhandler.svg?style=svg)][2]
+[![Circle CI](https://circleci.com/gh/gielfeldt/shutdownhandler.svg?style=shield)][2]
 [![Test Coverage](https://codeclimate.com/github/gielfeldt/shutdownhandler/badges/coverage.svg)][3]
 [![Code Climate](https://codeclimate.com/github/gielfeldt/shutdownhandler/badges/gpa.svg)][5]
 
