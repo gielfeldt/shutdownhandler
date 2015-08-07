@@ -3,13 +3,11 @@ machine:
     # Add composer global bin dir to path.
     PATH: $HOME/.composer/vendor/bin:$PATH
   php:
-    # Fix version so we'll be using phpenv instead of the system PHP,
-    # which allows us to fiddle with the conf files.
     version: 5.5.11
 
 dependencies:
   pre:
-    # Install Drush.
-    - composer --prefer-source --no-interaction global require codeclimate/php-test-reporter:dev-master
+    - composer --prefer-source --no-interaction require codeclimate/php-test-reporter:dev-master
+    - composer install
     - phpunit --coverage-clover build/logs/clover.xml
-    - test-reporter
+    - ./vendor/bin/test-reporter
