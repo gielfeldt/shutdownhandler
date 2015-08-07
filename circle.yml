@@ -2,6 +2,10 @@ machine:
   environment:
     # Add composer global bin dir to path.
     PATH: $HOME/.composer/vendor/bin:$PATH
+  php:
+    # Fix version so we'll be using phpenv instead of the system PHP,
+    # which allows us to fiddle with the conf files.
+    version: 5.5.26
 
 dependencies:
   pre:
