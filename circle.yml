@@ -7,7 +7,7 @@ machine:
 
 dependencies:
   pre:
+    - sed -i 's/^;//' ~/.phpenv/versions/$(phpenv global)/etc/conf.d/xdebug.ini
     - composer --prefer-source --no-interaction require codeclimate/php-test-reporter:dev-master
-    - composer install
     - phpunit --coverage-clover build/logs/clover.xml
     - ./vendor/bin/test-reporter
