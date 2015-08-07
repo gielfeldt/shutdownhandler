@@ -1,11 +1,11 @@
 <?php
 
-namespace Gielfeldt\Ultimate\Test;
+namespace Gielfeldt\Test\ShutdownHandler;
 
-use Gielfeldt\Ultimate\ShutdownHandler;
+use Gielfeldt\ShutdownHandler;
 
 /**
- * @covers \Gielfeldt\Ultimate\ShutdownHandler
+ * @covers \Gielfeldt\ShutdownHandler
  */
 class ShutdownHandlerTest extends \PHPUnit_Framework_TestCase
 {

@@ -1,6 +1,6 @@
 <?php
 
-namespace Gielfeldt\Ultimate;
+namespace Gielfeldt;
 
 /**
  * Class ShutdownHandler

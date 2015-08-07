@@ -1,24 +1,24 @@
-# Ultimate library
+# Shutdown Handler
 
-[![Build Status](https://travis-ci.org/gielfeldt/ultimate.svg?branch=master)][2]
-[![Build Status](https://scrutinizer-ci.com/g/gielfeldt/ultimate/badges/build.png?b=master)](https://scrutinizer-ci.com/g/gielfeldt/ultimate/build-status/master)
-[![Scrutinizer Code Quality](https://scrutinizer-ci.com/g/gielfeldt/ultimate/badges/quality-score.png?b=master)][3]
-[![Code Coverage](https://scrutinizer-ci.com/g/gielfeldt/ultimate/badges/coverage.png?b=master)][3]
-[![Code Climate](https://codeclimate.com/github/gielfeldt/ultimate/badges/gpa.svg)][5]
+[![Build Status](https://travis-ci.org/gielfeldt/shutdownhandler.svg?branch=master)][2]
+[![Build Status](https://scrutinizer-ci.com/g/gielfeldt/shutdownhandler/badges/build.png?b=master)](https://scrutinizer-ci.com/g/gielfeldt/shutdownhandler/build-status/master)
+[![Scrutinizer Code Quality](https://scrutinizer-ci.com/g/gielfeldt/shutdownhandler/badges/quality-score.png?b=master)][3]
+[![Code Coverage](https://scrutinizer-ci.com/g/gielfeldt/shutdownhandler/badges/coverage.png?b=master)][3]
+[![Code Climate](https://codeclimate.com/github/gielfeldt/shutdownhandler/badges/gpa.svg)][5]
 
-[![Latest Stable Version](https://poser.pugx.org/gielfeldt/ultimate/v/stable.svg)][1]
-[![Latest Unstable Version](https://poser.pugx.org/gielfeldt/ultimate/v/unstable.svg)][1]
-[![License](https://poser.pugx.org/gielfeldt/ultimate/license.svg)][4]
-[![Total Downloads](https://poser.pugx.org/gielfeldt/ultimate/downloads.svg)][1]
+[![Latest Stable Version](https://poser.pugx.org/gielfeldt/shutdownhandler/v/stable.svg)][1]
+[![Latest Unstable Version](https://poser.pugx.org/gielfeldt/shutdownhandler/v/unstable.svg)][1]
+[![License](https://poser.pugx.org/gielfeldt/shutdownhandler/license.svg)][4]
+[![Total Downloads](https://poser.pugx.org/gielfeldt/shutdownhandler/downloads.svg)][1]
 
 ## Installation
 
-To install the Ultimate library in your project using Composer, first add the following to your `composer.json`
+To install the ShutdownHandler library in your project using Composer, first add the following to your `composer.json`
 config file.
 ```javascript
 {
     "require": {
-        "gielfeldt/ultimate": "~1.0"
+        "gielfeldt/shutdownhandler": "~1.0"
     }
 }
 ```
@@ -34,11 +34,11 @@ can be manipulated after being created.
 #### Example
 
 ```php
-namespace Gielfeldt\Ultimate\Example;
+namespace Gielfeldt\Example;
 
 require 'vendor/autoload.php';
 
-use Gielfeldt\Ultimate\ShutdownHandler;
+use Gielfeldt\ShutdownHandler;
 
 /**
  * Simple shutdown handler callback.
@@ -52,12 +52,12 @@ function myshutdownhandler($message = '')
 }
 
 // Register shutdown handler to be run during PHP shutdown phase.
-$handler = new ShutdownHandler('\Gielfeldt\Ultimate\Example\myshutdownhandler', array('cruel world'));
+$handler = new ShutdownHandler('\Gielfeldt\Example\myshutdownhandler', array('cruel world'));
 
 echo "Hello world\n";
 
 // Register shutdown handler.
-$handler2 = new ShutdownHandler('\Gielfeldt\Ultimate\Example\myshutdownhandler', array('for now'));
+$handler2 = new ShutdownHandler('\Gielfeldt\Example\myshutdownhandler', array('for now'));
 
 // Don't wait for shutdown phase, just run now.
 $handler2->run();
@@ -76,10 +76,10 @@ $handler2->run();
 
 
 
-[1]:  https://packagist.org/packages/gielfeldt/ultimate
-[2]:  https://travis-ci.org/gielfeldt/ultimate
-[3]:  https://scrutinizer-ci.com/g/gielfeldt/ultimate/?branch=master
-[4]:  https://github.com/gielfeldt/ultimate/blob/master/LICENSE.md
-[5]:  https://codeclimate.com/github/gielfeldt/ultimate
-[6]:  https://coveralls.io/r/gielfeldt/ultimate
+[1]:  https://packagist.org/packages/gielfeldt/shutdownhandler
+[2]:  https://travis-ci.org/gielfeldt/shutdownhandler
+[3]:  https://scrutinizer-ci.com/g/gielfeldt/shutdownhandler/?branch=master
+[4]:  https://github.com/gielfeldt/shutdownhandler/blob/master/LICENSE.md
+[5]:  https://codeclimate.com/github/gielfeldt/shutdownhandler
+[6]:  https://coveralls.io/r/gielfeldt/shutdownhandler
 [7]:  http://getcomposer.org
