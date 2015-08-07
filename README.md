@@ -1,9 +1,7 @@
 # Shutdown Handler
 
-[![Build Status](https://travis-ci.org/gielfeldt/shutdownhandler.svg?branch=master)][2]
-[![Build Status](https://scrutinizer-ci.com/g/gielfeldt/shutdownhandler/badges/build.png?b=master)](https://scrutinizer-ci.com/g/gielfeldt/shutdownhandler/build-status/master)
-[![Scrutinizer Code Quality](https://scrutinizer-ci.com/g/gielfeldt/shutdownhandler/badges/quality-score.png?b=master)][3]
-[![Code Coverage](https://scrutinizer-ci.com/g/gielfeldt/shutdownhandler/badges/coverage.png?b=master)][3]
+[![Circle CI](https://circleci.com/gh/gielfeldt/shutdownhandler.svg?style=svg)][2]
+[![Test Coverage](https://codeclimate.com/github/gielfeldt/shutdownhandler/badges/coverage.svg)][3]
 [![Code Climate](https://codeclimate.com/github/gielfeldt/shutdownhandler/badges/gpa.svg)][5]
 
 [![Latest Stable Version](https://poser.pugx.org/gielfeldt/shutdownhandler/v/stable.svg)][1]
@@ -23,7 +21,7 @@ config file.
 }
 ```
 
-Then run Composer's install or update commands to complete installation. Please visit the [Composer homepage][7] for
+Then run Composer's install or update commands to complete installation. Please visit the [Composer homepage][6] for
 more information about how to use Composer.
 
 ### Shutdown handler
@@ -77,9 +75,8 @@ $handler2->run();
 
 
 [1]:  https://packagist.org/packages/gielfeldt/shutdownhandler
-[2]:  https://travis-ci.org/gielfeldt/shutdownhandler
-[3]:  https://scrutinizer-ci.com/g/gielfeldt/shutdownhandler/?branch=master
+[2]:  https://circleci.com/gh/gielfeldt/shutdownhandler
+[3]:  https://codeclimate.com/github/gielfeldt/shutdownhandler/coverage
 [4]:  https://github.com/gielfeldt/shutdownhandler/blob/master/LICENSE.md
 [5]:  https://codeclimate.com/github/gielfeldt/shutdownhandler
-[6]:  https://coveralls.io/r/gielfeldt/shutdownhandler
-[7]:  http://getcomposer.org
+[6]:  http://getcomposer.org
