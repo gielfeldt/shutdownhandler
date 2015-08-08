@@ -49,7 +49,8 @@ class MyClass
     }
 }
 
-class Vanilla {
+class Vanilla
+{
     /**
      * The destructor messages.
      * @var string
@@ -59,16 +60,19 @@ class Vanilla {
     /**
      * Constructor.
      */
-    public function __construct($message = '') {
+    public function __construct($message = '')
+    {
         $this->message = $message;
     }
     /**
      * Destructor.
      */
-    public function __destruct() {
+    public function __destruct()
+    {
         echo "Destroy $this->message\n";
     }
 }
+
 // Instantiate object.
 $obj = new MyClass("world");
 
@@ -91,5 +95,5 @@ $vanilla = new Vanilla('vanilla');
 // Trigger a fatal error. This will prevent $vanilla's destructor from being
 // run. However, $obj's destructor will be run, as it is handled by a shutdown
 // handler.
-$a = null;
-$a(232);
+$callback = null;
+$callback(232);
