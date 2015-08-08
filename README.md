@@ -31,6 +31,12 @@ more information about how to use Composer.
 This shutdown handler class allows you to create advanced shutdown handlers, that
 can be manipulated after being created.
 
+#### Motivation
+
+1. Destructors are not run on fatal errors. In my particular case, I needed a lock class that was robust wrt to cleaning up after itself. See examples/fatal.php for an example of this.
+
+2. PHP shutdown handlers cannot be manipulated after registration (unregister, execute, etc.).
+
 #### Example
 
 ```php
