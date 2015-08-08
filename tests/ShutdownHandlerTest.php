@@ -9,59 +9,51 @@ use Gielfeldt\ShutdownHandler;
  */
 class ShutdownHandlerTest extends \PHPUnit_Framework_TestCase
 {
-    static public $testVariable;
+    public static $testVariable;
 
-    static public function shutdown() {
+    /**
+     * Real shutdown handler.
+     */
+    public static function shutdown()
+    {
         self::$testVariable++;
     }
 
-    public function testInvalidCallback() {
-        self::$testVariable = 0;
-        try {
-            $callback_name = null;
-            do
-            {
-                $callback = 'invalidfunction' . md5(rand(0, 100000));
-            } while (ShutdownHandler::isCallable($callback, false, $callback_name));
-            $handler = new ShutdownHandler($callback, array());
-            $handler->run();
-            $this->assertTrue(false);
-        }
-        catch (\RuntimeException $e) {
-            $this->assertEquals("Callback: '$callback_name' is not callable", $e->getMessage());
-        }
-    }
-
+    /**
+     * Register and run a shutdown handler.
+     */
     public function testRegister()
     {
         self::$testVariable = 0;
         $handler = new ShutdownHandler(array(get_class($this), 'shutdown'), array());
+        $this->assertTrue($handler instanceof ShutdownHandler);
         $handler->run();
         $this->assertSame(1, self::$testVariable);
     }
 
-    public function testUnRegister()
+    /**
+     * Test shutdown function.
+     *
+     * @depends testRegister
+     */
+    public function testShutdown()
     {
         self::$testVariable = 0;
-        $handler = new ShutdownHandler(array(get_class($this), 'shutdown'), array());
-        $handler->unRegister();
-        $handler->run();
+        $handler = new ShutdownHandler(array(get_class($this), 'shutdown'), array(), 'testkey');
+        ShutdownHandler::shutdown();
+        $this->assertSame(1, self::$testVariable);
+
+        self::$testVariable = 0;
+        ShutdownHandler::shutdown();
         $this->assertSame(0, self::$testVariable);
     }
 
-    public function testUnRegisterAll()
-    {
-        self::$testVariable = 0;
-        $handlers = array();
-        $count = 9;
-        do {
-            $handlers[] = new ShutdownHandler(array(get_class($this), 'shutdown'), array());
-        } while (--$count);
-        ShutdownHandler::unRegisterAll();
-        ShutdownHandler::runAll();
-        $this->assertSame(0, self::$testVariable);
-    }
-
+    /**
+     * Run a set of handlers.
+     *
+     * @depends testRegister
+     * @depends testShutdown
+     */
     public function testRunHandlers()
     {
         self::$testVariable = 0;
@@ -73,10 +65,90 @@ class ShutdownHandlerTest extends \PHPUnit_Framework_TestCase
         ShutdownHandler::runHandlers(array(
             $handlers[0], $handlers[1], $handlers[2], $handlers[3]
         ));
-        ShutdownHandler::unRegisterAll();
         $this->assertSame(4, self::$testVariable);
+
+        ShutdownHandler::shutdown();
+        $this->assertSame(9, self::$testVariable);
     }
 
+    /**
+     * Run all shutdown handlers.
+     *
+     * @depends testRegister
+     * @depends testShutdown
+     */
+    public function testRunAll()
+    {
+        self::$testVariable = 0;
+        $handlers = array();
+        $count = 9;
+        do {
+            $handlers[] = new ShutdownHandler(array(get_class($this), 'shutdown'), array());
+        } while (--$count);
+
+        ShutdownHandler::runAll();
+        $this->assertSame(9, self::$testVariable);
+
+        ShutdownHandler::shutdown();
+        $this->assertSame(9, self::$testVariable);
+    }
+
+    /**
+     * Unregister a shutdown handler.
+     *
+     * @depends testRegister
+     * @depends testShutdown
+     */
+    public function testUnRegister()
+    {
+        $handler = new ShutdownHandler(array(get_class($this), 'shutdown'), array());
+        $handler->unRegister();
+
+        self::$testVariable = 0;
+        ShutdownHandler::shutdown();
+        $this->assertSame(0, self::$testVariable);
+    }
+
+    public function testIsRegistered()
+    {
+        $handler = new ShutdownHandler(array(get_class($this), 'shutdown'), array());
+        $this->assertSame(true, $handler->isRegistered());
+
+        $handler = new ShutdownHandler(array(get_class($this), 'shutdown'), array());
+        $handler->unRegister();
+        $this->assertSame(false, $handler->isRegistered());
+
+        self::$testVariable = 0;
+        ShutdownHandler::shutdown();
+        $this->assertSame(1, self::$testVariable);
+
+    }
+
+    /**
+     * Unregister all shutdown handlers.
+     *
+     * @depends testRegister
+     * @depends testShutdown
+     */
+    public function testUnRegisterAll()
+    {
+        $handlers = array();
+        $count = 9;
+        do {
+            $handlers[] = new ShutdownHandler(array(get_class($this), 'shutdown'), array());
+        } while (--$count);
+        ShutdownHandler::unRegisterAll();
+
+        self::$testVariable = 0;
+        ShutdownHandler::shutdown();
+        $this->assertSame(0, self::$testVariable);
+    }
+
+    /**
+     * Unregister a set of handlers.
+     *
+     * @depends testShutdown
+     */
     public function testUnRegisterHandlers()
     {
         self::$testVariable = 0;
@@ -88,25 +160,41 @@ class ShutdownHandlerTest extends \PHPUnit_Framework_TestCase
         ShutdownHandler::unRegisterHandlers(array(
             $handlers[0], $handlers[1], $handlers[2], $handlers[3]
         ));
-        ShutdownHandler::runAll();
+
+        self::$testVariable = 0;
+        ShutdownHandler::shutdown();
         $this->assertSame(5, self::$testVariable);
     }
 
+    /**
+     * Test re-registration of shutdown handler.
+     *
+     * @depends testRegister
+     * @depends testUnRegister
+     * @depends testShutdown
+     */
     public function testReRegister()
     {
-        self::$testVariable = 0;
         $handler = new ShutdownHandler(array(get_class($this), 'shutdown'), array());
         $handler->unRegister();
         $handler->reRegister();
-        $handler->run();
+
+        self::$testVariable = 0;
+        ShutdownHandler::shutdown();
         $this->assertSame(1, self::$testVariable);
     }
 
+    /**
+     * Test keyed shutdown handler.
+     *
+     * @depends testRegister
+     * @depends testShutdown
+     */
     public function testRegisterKey()
     {
         self::$testVariable = 0;
         $handler = new ShutdownHandler(array(get_class($this), 'shutdown'), array(), 'testkey');
-        $handler->run();
+        ShutdownHandler::shutdown();
         $this->assertSame(1, self::$testVariable);
 
         self::$testVariable = 0;
@@ -122,12 +210,19 @@ class ShutdownHandlerTest extends \PHPUnit_Framework_TestCase
         $this->assertSame(2, self::$testVariable);
     }
 
+    /**
+     * Test un-registration of keyed shutdown handler.
+     *
+     * @depends testRegister
+     * @depends testUnRegister
+     * @depends testShutdown
+     */
     public function testUnRegisterKey()
     {
         self::$testVariable = 0;
         $handler = new ShutdownHandler(array(get_class($this), 'shutdown'), array(), 'testkey');
         $handler->unRegister();
-        $handler->run();
+        ShutdownHandler::shutdown();
         $this->assertSame(0, self::$testVariable);
 
         self::$testVariable = 0;
@@ -145,12 +240,19 @@ class ShutdownHandlerTest extends \PHPUnit_Framework_TestCase
         $this->assertSame(1, self::$testVariable);
     }
 
+    /**
+     * Test re-registration of keyed shutdown handler.
+     *
+     * @depends testRegister
+     * @depends testReRegister
+     * @depends testShutdown
+     */
     public function testReRegisterKey()
     {
         self::$testVariable = 0;
         $handler = new ShutdownHandler(array(get_class($this), 'shutdown'), array(), 'testkey');
         $handler->reRegister('testkey');
-        $handler->run();
+        ShutdownHandler::shutdown();
         $this->assertSame(1, self::$testVariable);
 
         self::$testVariable = 0;
@@ -159,21 +261,5 @@ class ShutdownHandlerTest extends \PHPUnit_Framework_TestCase
         $handler2->reRegister('testkey1');
         ShutdownHandler::shutdown();
         $this->assertSame(1, self::$testVariable);
-    }
-
-    public function testShutdownFunction() {
-        self::$testVariable = 0;
-        $handler = new ShutdownHandler(array(get_class($this), 'shutdown'), array(), 'testkey');
-        ShutdownHandler::shutdown();
-        $this->assertSame(1, self::$testVariable);
-
-        self::$testVariable = 0;
-        $handler = new ShutdownHandler(array(get_class($this), 'shutdown'), array(), 'testkey');
-        $handler->run();
-        $this->assertSame(1, self::$testVariable);
-
-        self::$testVariable = 0;
-        ShutdownHandler::shutdown();
-        $this->assertSame(0, self::$testVariable);
     }
 }
