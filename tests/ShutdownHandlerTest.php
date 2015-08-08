@@ -52,15 +52,11 @@ class ShutdownHandlerTest extends \PHPUnit_Framework_TestCase
     public function testUnRegisterAll()
     {
         self::$testVariable = 0;
-        $handler = new ShutdownHandler(array(get_class($this), 'shutdown'), array());
-        $handler = new ShutdownHandler(array(get_class($this), 'shutdown'), array());
-        $handler = new ShutdownHandler(array(get_class($this), 'shutdown'), array());
-        $handler = new ShutdownHandler(array(get_class($this), 'shutdown'), array());
-        $handler = new ShutdownHandler(array(get_class($this), 'shutdown'), array());
-        $handler = new ShutdownHandler(array(get_class($this), 'shutdown'), array());
-        $handler = new ShutdownHandler(array(get_class($this), 'shutdown'), array());
-        $handler = new ShutdownHandler(array(get_class($this), 'shutdown'), array());
-        $handler = new ShutdownHandler(array(get_class($this), 'shutdown'), array());
+        $handlers = array();
+        $count = 9;
+        do {
+            $handlers[] = new ShutdownHandler(array(get_class($this), 'shutdown'), array());
+        } while (--$count);
         ShutdownHandler::unRegisterAll();
         ShutdownHandler::runAll();
         $this->assertSame(0, self::$testVariable);
@@ -69,17 +65,13 @@ class ShutdownHandlerTest extends \PHPUnit_Framework_TestCase
     public function testRunHandlers()
     {
         self::$testVariable = 0;
-        $handler1 = new ShutdownHandler(array(get_class($this), 'shutdown'), array());
-        $handler2 = new ShutdownHandler(array(get_class($this), 'shutdown'), array());
-        $handler3 = new ShutdownHandler(array(get_class($this), 'shutdown'), array());
-        $handler4 = new ShutdownHandler(array(get_class($this), 'shutdown'), array());
-        $handler5 = new ShutdownHandler(array(get_class($this), 'shutdown'), array());
-        $handler6 = new ShutdownHandler(array(get_class($this), 'shutdown'), array());
-        $handler7 = new ShutdownHandler(array(get_class($this), 'shutdown'), array());
-        $handler8 = new ShutdownHandler(array(get_class($this), 'shutdown'), array());
-        $handler9 = new ShutdownHandler(array(get_class($this), 'shutdown'), array());
+        $handlers = array();
+        $count = 9;
+        do {
+            $handlers[] = new ShutdownHandler(array(get_class($this), 'shutdown'), array());
+        } while (--$count);
         ShutdownHandler::runHandlers(array(
-            $handler1, $handler2, $handler3, $handler4
+            $handlers[0], $handlers[1], $handlers[2], $handlers[3]
         ));
         ShutdownHandler::unRegisterAll();
         $this->assertSame(4, self::$testVariable);
@@ -88,17 +80,13 @@ class ShutdownHandlerTest extends \PHPUnit_Framework_TestCase
     public function testUnRegisterHandlers()
     {
         self::$testVariable = 0;
-        $handler1 = new ShutdownHandler(array(get_class($this), 'shutdown'), array());
-        $handler2 = new ShutdownHandler(array(get_class($this), 'shutdown'), array());
-        $handler3 = new ShutdownHandler(array(get_class($this), 'shutdown'), array());
-        $handler4 = new ShutdownHandler(array(get_class($this), 'shutdown'), array());
-        $handler5 = new ShutdownHandler(array(get_class($this), 'shutdown'), array());
-        $handler6 = new ShutdownHandler(array(get_class($this), 'shutdown'), array());
-        $handler7 = new ShutdownHandler(array(get_class($this), 'shutdown'), array());
-        $handler8 = new ShutdownHandler(array(get_class($this), 'shutdown'), array());
-        $handler9 = new ShutdownHandler(array(get_class($this), 'shutdown'), array());
+        $handlers = array();
+        $count = 9;
+        do {
+            $handlers[] = new ShutdownHandler(array(get_class($this), 'shutdown'), array());
+        } while (--$count);
         ShutdownHandler::unRegisterHandlers(array(
-            $handler1, $handler2, $handler3, $handler4
+            $handlers[0], $handlers[1], $handlers[2], $handlers[3]
         ));
         ShutdownHandler::runAll();
         $this->assertSame(5, self::$testVariable);
