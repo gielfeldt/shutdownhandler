@@ -98,8 +98,21 @@ class ShutdownHandler
      */
     public function run()
     {
-        if ($this->unRegister() && empty(static::$keys[$this->key])) {
+        if ($this->unRegister() && empty(static::$keys[$this->getKey()])) {
             call_user_func_array($this->callback, $this->arguments);
+        }
+    }
+
+    /**
+     * Run a set of shutdown handlers.
+     *
+     * @param array $handlers
+     *   Array of ShutdownHandlers.
+     */
+    public static function runHandlers(array $handlers)
+    {
+        foreach ($handlers as $handler) {
+            $handler->run();
         }
     }
 
@@ -108,9 +121,7 @@ class ShutdownHandler
      */
     public static function runAll()
     {
-        foreach (static::$handlers as $handler) {
-            $handler->run();
-        }
+        static::runHandlers(static::getHandlers());
     }
 
     /**
@@ -133,8 +144,8 @@ class ShutdownHandler
     public function unRegister()
     {
         if (isset(static::$handlers[$this->id])) {
-            if (isset($this->key)) {
-                static::$keys[$this->key]--;
+            if (!is_null($this->getKey())) {
+                static::$keys[$this->getKey()]--;
             }
             unset(static::$handlers[$this->id]);
             return true;
@@ -143,13 +154,24 @@ class ShutdownHandler
     }
 
     /**
+     * Unregister a set of shutdown handlers.
+     *
+     * @param array $handlers
+     *   Array of ShutdownHandlers.
+     */
+    public static function unRegisterHandlers(array $handlers)
+    {
+        foreach ($handlers as $handler) {
+            $handler->unRegister();
+        }
+    }
+
+    /**
      * Unregister all handlers.
      */
     public static function unRegisterAll()
     {
-        foreach (static::$handlers as $handler) {
-            $handler->unRegister();
-        }
+        static::unRegisterHandlers(static::getHandlers());
     }
 
     /**
@@ -160,6 +182,26 @@ class ShutdownHandler
         // Set the key, and register the handler.
         $this->setKey($key);
         static::$handlers[$this->id] = $this;
+    }
+
+    /**
+     * Get key of shutdown handler.
+     *
+     * @return string
+     *   Key of shutdown handler, null if not keyed.
+     */
+    public function getKey() {
+        return $this->key;
+    }
+
+    /**
+     * Get registered handlers.
+     *
+     * @return ShutdownHandler
+     *   Array of handlers.
+     */
+    public static function getHandlers() {
+        return static::$handlers;
     }
 
     /**
