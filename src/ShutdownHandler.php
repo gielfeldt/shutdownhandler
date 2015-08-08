@@ -176,6 +176,9 @@ class ShutdownHandler
 
     /**
      * Reregister handler.
+     *
+     * @param string $key
+     *   (Optional) The key of the handler.
      */
     public function reRegister($key = null)
     {
