@@ -41,7 +41,7 @@ class ShutdownHandler
      * The handler object's id in the stack counter.
      * @var string
      */
-    protected $id;
+    protected $handlerId;
 
     /**
      * The handler object's key.
@@ -87,7 +87,7 @@ class ShutdownHandler
 
         // ID must be non-numerical, so that PHP array indices won't shift
         // unexpectedly.
-        $this->id = ":" . (string) (static::$counter++);
+        $this->handlerId = ":" . (string) (static::$counter++);
 
         // Register this handler.
         $this->reRegister($key);
@@ -132,7 +132,7 @@ class ShutdownHandler
      */
     public function isRegistered()
     {
-        return isset($this->id) && !empty(static::$handlers[$this->id]);
+        return isset($this->handlerId) && !empty(static::$handlers[$this->handlerId]);
     }
 
     /**
@@ -143,11 +143,11 @@ class ShutdownHandler
      */
     public function unRegister()
     {
-        if (isset(static::$handlers[$this->id])) {
+        if (isset(static::$handlers[$this->handlerId])) {
             if (!is_null($this->getKey())) {
                 static::$keys[$this->getKey()]--;
             }
-            unset(static::$handlers[$this->id]);
+            unset(static::$handlers[$this->handlerId]);
             return true;
         }
         return false;
@@ -184,7 +184,7 @@ class ShutdownHandler
     {
         // Set the key, and register the handler.
         $this->setKey($key);
-        static::$handlers[$this->id] = $this;
+        static::$handlers[$this->handlerId] = $this;
     }
 
     /**
