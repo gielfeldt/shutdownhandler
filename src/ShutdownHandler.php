@@ -9,7 +9,7 @@ class ShutdownHandler
 {
     /**
      * Registered handler objects.
-     * @var ShutdownHandler
+     * @var array
      */
     protected static $handlers;
 
@@ -206,10 +206,10 @@ class ShutdownHandler
      *
      * @see is_callable()
      */
-    public static function isCallable($name, $syntax_only = false, &$callable_name) {
+    public static function isCallable($name, $syntax_only = false, &$callable_name = null)
+    {
         $result = is_callable($name, $syntax_only, $callable_name);
-        if (is_array($name))
-        {
+        if (is_array($name)) {
             $callable_name = is_object($name[0]) ? str_replace('::', '->', $callable_name) : $callable_name;
         }
         return $result;
