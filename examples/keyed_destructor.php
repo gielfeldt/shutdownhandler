@@ -61,3 +61,9 @@ $objs[] = new MyClass("world 5", "key2");
 $objs[] = new MyClass("world 6", "key2");
 $objs[] = new MyClass("world 7", "key2");
 $objs[] = new MyClass("world 8", "key2");
+
+// $objs[0] handler will be the one that runs.
+unset($objs[3],$objs[2], $objs[1], $objs[0]);
+
+// $objs[7] handler will be the one that runs.
+unset($objs[4],$objs[5], $objs[6], $objs[7]);
