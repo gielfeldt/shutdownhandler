@@ -193,7 +193,8 @@ class ShutdownHandler
      * @return string
      *   Key of shutdown handler, null if not keyed.
      */
-    public function getKey() {
+    public function getKey()
+    {
         return $this->key;
     }
 
@@ -203,7 +204,8 @@ class ShutdownHandler
      * @return ShutdownHandler
      *   Array of handlers.
      */
-    public static function getHandlers() {
+    public static function getHandlers()
+    {
         return static::$handlers;
     }
 
