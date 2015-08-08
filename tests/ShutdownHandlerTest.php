@@ -127,7 +127,6 @@ class ShutdownHandlerTest extends \PHPUnit_Framework_TestCase
         self::$testVariable = 0;
         ShutdownHandler::shutdown();
         $this->assertSame(1, self::$testVariable);
-
     }
 
     /**
