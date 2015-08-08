@@ -244,11 +244,7 @@ class ShutdownHandler
      */
     public static function shutdown()
     {
-        // Always pick the first handler in the array. When a handler is run, it
-        // will remove itself from the array (unregister).
-        while ($handler = reset(static::$handlers)) {
-            $handler->run();
-        }
+        static::runAll();
     }
 
     /**
