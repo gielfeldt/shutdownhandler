@@ -62,6 +62,9 @@ class ShutdownHandler
      *   Callback to call on shutdown.
      * @param array $arguments
      *   Arguments for the callback.
+     * @param string $key
+     *   (Optional) Key for singleton destructor. If provided, only one
+     *   registered handler per key will run.
      */
     public function __construct($callback, array $arguments = array(), $key = null)
     {
