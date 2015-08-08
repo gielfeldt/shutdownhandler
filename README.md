@@ -1,8 +1,10 @@
 # Shutdown Handler
 
-[![Circle CI](https://circleci.com/gh/gielfeldt/shutdownhandler.svg?style=shield)][2]
+[![Build Status](https://scrutinizer-ci.com/g/gielfeldt/shutdownhandler/badges/build.png?b=master)][8]
 [![Test Coverage](https://codeclimate.com/github/gielfeldt/shutdownhandler/badges/coverage.svg)][3]
+[![Scrutinizer Code Quality](https://scrutinizer-ci.com/g/gielfeldt/shutdownhandler/badges/quality-score.png?b=master)][7]
 [![Code Climate](https://codeclimate.com/github/gielfeldt/shutdownhandler/badges/gpa.svg)][5]
+
 
 [![Latest Stable Version](https://poser.pugx.org/gielfeldt/shutdownhandler/v/stable.svg)][1]
 [![Latest Unstable Version](https://poser.pugx.org/gielfeldt/shutdownhandler/v/unstable.svg)][1]
@@ -80,3 +82,5 @@ $handler2->run();
 [4]:  https://github.com/gielfeldt/shutdownhandler/blob/master/LICENSE.md
 [5]:  https://codeclimate.com/github/gielfeldt/shutdownhandler
 [6]:  http://getcomposer.org
+[7]:  https://scrutinizer-ci.com/g/gielfeldt/shutdownhandler/?branch=master
+[8]:  https://scrutinizer-ci.com/g/gielfeldt/shutdownhandler/build-status/master
