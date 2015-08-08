@@ -91,5 +91,5 @@ $vanilla = new Vanilla('vanilla');
 // Trigger a fatal error. This will prevent $vanilla's destructor from being
 // run. However, $obj's destructor will be run, as it is handled by a shutdown
 // handler.
-$a = NULL;
+$a = null;
 $a(232);
