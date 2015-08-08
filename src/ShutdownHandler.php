@@ -104,6 +104,16 @@ class ShutdownHandler
     }
 
     /**
+     * Run all shutdown handlers.
+     */
+    public static function runAll()
+    {
+        foreach (static::$handlers as $handler) {
+            $handler->run();
+        }
+    }
+
+    /**
      * Check if this handler is registered.
      *
      * @return boolean
