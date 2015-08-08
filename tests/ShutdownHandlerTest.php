@@ -65,6 +65,23 @@ class ShutdownHandlerTest extends \PHPUnit_Framework_TestCase
         $this->assertSame(9, self::$testVariable);
     }
 
+    public function testUnRegisterAll()
+    {
+        self::$testVariable = 0;
+        $handler = new ShutdownHandler(array(get_class($this), 'shutdown'), array());
+        $handler = new ShutdownHandler(array(get_class($this), 'shutdown'), array());
+        $handler = new ShutdownHandler(array(get_class($this), 'shutdown'), array());
+        $handler = new ShutdownHandler(array(get_class($this), 'shutdown'), array());
+        $handler = new ShutdownHandler(array(get_class($this), 'shutdown'), array());
+        $handler = new ShutdownHandler(array(get_class($this), 'shutdown'), array());
+        $handler = new ShutdownHandler(array(get_class($this), 'shutdown'), array());
+        $handler = new ShutdownHandler(array(get_class($this), 'shutdown'), array());
+        $handler = new ShutdownHandler(array(get_class($this), 'shutdown'), array());
+        ShutdownHandler::unRegisterAll();
+        ShutdownHandler::runAll();
+        $this->assertSame(0, self::$testVariable);
+    }
+
     public function testReRegister()
     {
         self::$testVariable = 0;

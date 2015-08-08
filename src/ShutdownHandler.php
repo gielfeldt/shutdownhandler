@@ -143,6 +143,16 @@ class ShutdownHandler
     }
 
     /**
+     * Unregister all handlers.
+     */
+    public static function unRegisterAll()
+    {
+        foreach (static::$handlers as $handler) {
+            $handler->unRegister();
+        }
+    }
+
+    /**
      * Reregister handler.
      */
     public function reRegister($key = null)
