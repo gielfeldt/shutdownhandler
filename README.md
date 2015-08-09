@@ -33,11 +33,11 @@ can be manipulated after being created.
 
 #### Motivation
 
-1. Destructors are not run on fatal errors. In my particular case, I needed a lock class that was robust wrt to cleaning up after itself. See examples/fatal.php for an example of this.
+1. Destructors are not run on fatal errors. In my particular case, I needed a lock class that was robust wrt to cleaning up after itself. See "Example 2" below or examples/fatal.php for an example of this.
 
 2. PHP shutdown handlers cannot be manipulated after registration (unregister, execute, etc.).
 
-#### Example
+#### Example 1 - using Shutdown Handler
 
 ```php
 namespace Gielfeldt\Example;
@@ -68,6 +68,73 @@ $handler2 = new ShutdownHandler('\Gielfeldt\Example\myshutdownhandler', array('f
 // Don't wait for shutdown phase, just run now.
 $handler2->run();
 ```
+
+#### Example 2 - Ensuring object destruction
+
+```php
+namespace Gielfeldt\Example;
+
+require 'vendor/autoload.php';
+
+use Gielfeldt\ShutdownHandler;
+
+/**
+ * Test class with destructor via Gielfeldt\ShutdownHandler.
+ */
+class MyClass
+{
+    /**
+     * Reference to the shutdown handler object.
+     * @var ShutdownHandler
+     */
+    protected $shutdown;
+
+    /**
+     * Constructor.
+     *
+     * @param string $message
+     *   Message to display during destruction.
+     */
+    public function __construct($message = '')
+    {
+        // Register our shutdown handler.
+        $this->shutdown = new ShutdownHandler(array(get_class($this), 'shutdown'), array($message));
+    }
+
+    /**
+     * Run our shutdown handler upon object destruction.
+     */
+    public function __destruct()
+    {
+        $this->shutdown->run();
+    }
+
+    /**
+     * Our shutdown handler.
+     *
+     * @param string $message
+     *   The message to display.
+     */
+    public static function shutdown($message = '')
+    {
+        echo "Destroy $message\n";
+    }
+}
+
+// Instantiate object.
+$obj = new MyClass("world");
+
+// Destroy object. The object's shutdown handler will be run.
+unset($obj);
+
+// Instantiate new object.
+$obj = new MyClass("universe");
+
+// Object's shutdown handler will be run on object's destruction or when PHP's
+// shutdown handlers are executed. Whichever comes first.
+```
+
+For more examples see the examples/ folder.
 
 #### Features
 
