@@ -157,3 +157,5 @@ For more examples see the examples/ folder.
 [6]:  http://getcomposer.org
 [7]:  https://scrutinizer-ci.com/g/gielfeldt/shutdownhandler/?branch=master
 [8]:  https://scrutinizer-ci.com/g/gielfeldt/shutdownhandler/build-status/master
+[9]:  https://coveralls.io/github/gielfeldt/shutdownhandler
+[10]: https://travis-ci.org/gielfeldt/shutdownhandler
