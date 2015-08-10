@@ -17,16 +17,16 @@ dependencies:
     - wget https://scrutinizer-ci.com/ocular.phar
 
     # Install test reporter for coveralls.
-    - composer --no-interaction require satooshi/php-coveralls:dev-master
+    # Assume satooshi/php-coveralls is installed via codeclimate.
 
-    # Run test coverage
+    # Run test coverage.
     - phpunit --coverage-clover build/logs/clover.xml
 
-    # Send test coverage to codeclimate
+    # Send test coverage to codeclimate.
     - ./vendor/bin/test-reporter
 
-    # Send test coverage to scrutinizer
+    # Send test coverage to scrutinizer.
     - php ocular.phar code-coverage:upload --format=php-clover build/logs/clover.xml
 
-    # Send test coverage to coveralls
+    # Send test coverage to coveralls.
     - ./vendor/bin/coveralls
