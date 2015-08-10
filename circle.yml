@@ -7,9 +7,26 @@ machine:
 
 dependencies:
   pre:
+    # Enable xdebug for test coverage.
     - sed -i 's/^;//' ~/.phpenv/versions/$(phpenv global)/etc/conf.d/xdebug.ini
+
+    # Install test reporter for codeclimate.
     - composer --no-interaction require codeclimate/php-test-reporter:dev-master
-    - phpunit --coverage-clover build/logs/clover.xml
-    - ./vendor/bin/test-reporter
+
+    # Install test reporter for scrutinizer.
     - wget https://scrutinizer-ci.com/ocular.phar
+
+    # Install test reporter for coveralls.
+    - composer --no-interaction require satooshi/php-coveralls:dev-master
+
+    # Run test coverage
+    - phpunit --coverage-clover build/logs/clover.xml
+
+    # Send test coverage to codeclimate
+    - ./vendor/bin/test-reporter
+
+    # Send test coverage to scrutinizer
     - php ocular.phar code-coverage:upload --format=php-clover build/logs/clover.xml
+
+    # Send test coverage to coveralls
+    - ./vendor/bin/coveralls
