@@ -223,16 +223,23 @@ class ShutdownHandler
     {
         // If a handler switches key, we need to decrement the counter for the old
         // key, and increment the counter for the new key.
-
-        // Only decrement the counter, if this is already a registered handler.
-        if (isset($this->key) && $this->isRegistered()) {
-            static::$keys[$this->key]--;
-        }
+        $this->removeKey();
 
         // Set the new key, and increment the counter appropriately.
         $this->key = $key;
         if (isset($key)) {
-            @static::$keys[$key]++;
+            static::$keys[$key] = isset(static::$keys[$key]) ? static::$keys[$key] + 1 : 1;
+        }
+    }
+
+    /**
+     * Remove the key from shutdown handler.
+     */
+    protected function removeKey()
+    {
+        // Only decrement the counter, if this is already a registered handler.
+        if (isset($this->key) && $this->isRegistered()) {
+            static::$keys[$this->key]--;
         }
     }
 
