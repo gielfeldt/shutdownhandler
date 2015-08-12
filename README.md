@@ -5,12 +5,12 @@
 [![Scrutinizer Code Quality](https://scrutinizer-ci.com/g/gielfeldt/shutdownhandler/badges/quality-score.png?b=master)][7]
 [![Code Climate](https://codeclimate.com/github/gielfeldt/shutdownhandler/badges/gpa.svg)][5]
 
-
 [![Latest Stable Version](https://poser.pugx.org/gielfeldt/shutdownhandler/v/stable.svg)][1]
 [![Latest Unstable Version](https://poser.pugx.org/gielfeldt/shutdownhandler/v/unstable.svg)][1]
 [![Dependency Status](https://www.versioneye.com/user/projects/55cb2eb9dfed0a001e000200/badge.svg?style=flat)][11]
 [![License](https://poser.pugx.org/gielfeldt/shutdownhandler/license.svg)][4]
 [![Total Downloads](https://poser.pugx.org/gielfeldt/shutdownhandler/downloads.svg)][1]
+
 [![Documentation Status](https://readthedocs.org/projects/shutdownhandler/badge/?version=stable)][12]
 [![Documentation Status](https://readthedocs.org/projects/shutdownhandler/badge/?version=latest)][12]
 
