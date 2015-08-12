@@ -8,6 +8,7 @@
 
 [![Latest Stable Version](https://poser.pugx.org/gielfeldt/shutdownhandler/v/stable.svg)][1]
 [![Latest Unstable Version](https://poser.pugx.org/gielfeldt/shutdownhandler/v/unstable.svg)][1]
+[![Dependency Status](https://www.versioneye.com/user/projects/55cb2eb9dfed0a001e000200/badge.svg?style=flat)][11]
 [![License](https://poser.pugx.org/gielfeldt/shutdownhandler/license.svg)][4]
 [![Total Downloads](https://poser.pugx.org/gielfeldt/shutdownhandler/downloads.svg)][1]
 
@@ -159,3 +160,4 @@ For more examples see the examples/ folder.
 [8]:  https://scrutinizer-ci.com/g/gielfeldt/shutdownhandler/build-status/master
 [9]:  https://coveralls.io/github/gielfeldt/shutdownhandler
 [10]: https://travis-ci.org/gielfeldt/shutdownhandler
+[11]: https://www.versioneye.com/user/projects/55cb2eb9dfed0a001e000200
