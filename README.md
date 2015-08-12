@@ -4,6 +4,7 @@
 [![Test Coverage](https://codeclimate.com/github/gielfeldt/shutdownhandler/badges/coverage.svg)][3]
 [![Scrutinizer Code Quality](https://scrutinizer-ci.com/g/gielfeldt/shutdownhandler/badges/quality-score.png?b=master)][7]
 [![Code Climate](https://codeclimate.com/github/gielfeldt/shutdownhandler/badges/gpa.svg)][5]
+[![Documentation Status](https://readthedocs.org/projects/shutdownhandler/badge/?version=latest)][12]
 
 
 [![Latest Stable Version](https://poser.pugx.org/gielfeldt/shutdownhandler/v/stable.svg)][1]
@@ -161,3 +162,4 @@ For more examples see the examples/ folder.
 [9]:  https://coveralls.io/github/gielfeldt/shutdownhandler
 [10]: https://travis-ci.org/gielfeldt/shutdownhandler
 [11]: https://www.versioneye.com/user/projects/55cb2eb9dfed0a001e000200
+[12]: https://readthedocs.org/projects/shutdownhandler/?badge=latest
