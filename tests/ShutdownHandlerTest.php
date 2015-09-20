@@ -5,7 +5,7 @@ namespace Gielfeldt\ShutdownHandler\Test;
 use Gielfeldt\ShutdownHandler\ShutdownHandler;
 
 /**
- * @covers \Gielfeldt\ShutdownHandler
+ * @covers \Gielfeldt\ShutdownHandler\ShutdownHandler
  */
 class ShutdownHandlerTest extends \PHPUnit_Framework_TestCase
 {
