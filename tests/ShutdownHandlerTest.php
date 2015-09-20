@@ -1,8 +1,8 @@
 <?php
 
-namespace Gielfeldt\Test\ShutdownHandler;
+namespace Gielfeldt\ShutdownHandler\Test;
 
-use Gielfeldt\ShutdownHandler;
+use Gielfeldt\ShutdownHandler\ShutdownHandler;
 
 /**
  * @covers \Gielfeldt\ShutdownHandler

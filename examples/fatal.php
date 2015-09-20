@@ -1,10 +1,10 @@
 <?php
 
-namespace Gielfeldt\Example;
+namespace Gielfeldt\ShutdownHandler\Example;
 
 require 'vendor/autoload.php';
 
-use Gielfeldt\ShutdownHandler;
+use Gielfeldt\ShutdownHandler\ShutdownHandler;
 
 /**
  * Test class with destructor via Gielfeldt\ShutdownHandler.

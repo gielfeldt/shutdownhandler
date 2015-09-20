@@ -1,10 +1,10 @@
 <?php
 
-namespace Gielfeldt\Example;
+namespace Gielfeldt\ShutdownHandler\Example;
 
 require 'vendor/autoload.php';
 
-use Gielfeldt\ShutdownHandler;
+use Gielfeldt\ShutdownHandler\ShutdownHandler;
 
 /**
  * Simple shutdown handler callback.
@@ -19,11 +19,11 @@ function myshutdownhandler($message = '')
 
 // Register shutdown handler to be run during PHP shutdown phase.
 $handlers = array();
-$handlers[] = new ShutdownHandler('\Gielfeldt\Example\myshutdownhandler', array('test0'));
-$handlers[] = new ShutdownHandler('\Gielfeldt\Example\myshutdownhandler', array('test1'), 'key1');
-$handlers[] = new ShutdownHandler('\Gielfeldt\Example\myshutdownhandler', array('test2'), 'key1');
-$handlers[] = new ShutdownHandler('\Gielfeldt\Example\myshutdownhandler', array('test3'), 'key1');
-$handlers[] = new ShutdownHandler('\Gielfeldt\Example\myshutdownhandler', array('test4'), 'key1');
+$handlers[] = new ShutdownHandler('\Gielfeldt\ShutdownHandler\Example\myshutdownhandler', array('test0'));
+$handlers[] = new ShutdownHandler('\Gielfeldt\ShutdownHandler\Example\myshutdownhandler', array('test1'), 'key1');
+$handlers[] = new ShutdownHandler('\Gielfeldt\ShutdownHandler\Example\myshutdownhandler', array('test2'), 'key1');
+$handlers[] = new ShutdownHandler('\Gielfeldt\ShutdownHandler\Example\myshutdownhandler', array('test3'), 'key1');
+$handlers[] = new ShutdownHandler('\Gielfeldt\ShutdownHandler\Example\myshutdownhandler', array('test4'), 'key1');
 
 echo "Hello world\n";
 
